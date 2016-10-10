@@ -10,7 +10,7 @@ import { Errors, Error } from '../../../collections/errors.ts';
   selector: 'errors-alert',
   template
 })
-export class ErrorComponent implements OnInit {
+export class ErrorsComponent implements OnInit {
   // error: string;
   errors: Observable<Error[]>;
   autorunSub: Subscription;

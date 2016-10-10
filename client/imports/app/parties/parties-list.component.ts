@@ -63,24 +63,20 @@ export class PartiesListComponent implements OnInit, OnDestroy {
       if (this.partiesSub) {
         this.partiesSub.unsubscribe();
       }
-      
+
       this.partiesSub = MeteorObservable.subscribe('parties', options, location).zone().subscribe(() => {
-        this.parties = Parties.find({}, {
-          sort: {
-            name: nameOrder
-          }
-        }).zone();
+        this.parties = Parties.find({}, {sort: {name: nameOrder}}).zone();
       });
     });
 
     this.paginationService.register({
       id: this.paginationService.defaultId,
-      itemsPerPage: 10,
+      itemsPerPage: 5,
       currentPage: 1,
       totalItems: this.partiesSize
     });
 
-    this.pageSize.next(10);
+    this.pageSize.next(5);
     this.curPage.next(1);
     this.nameOrder.next(1);
     this.location.next('');
@@ -111,6 +107,7 @@ export class PartiesListComponent implements OnInit, OnDestroy {
   }
 
   isOwner(party: Party): boolean {
+    console.log(party.name, party.owner, this.user && this.user._id === party.owner);
     return this.user && this.user._id === party.owner;
   }
 

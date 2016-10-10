@@ -30,9 +30,13 @@
                 <img *ngIf="party.images" class="party-main-image" [src]="party | displayMainImage">
                 <h2 class="md-title ma-name">
                   <a [routerLink]="['/party', party._id]">{{party.name}}</a>
+                  <button [disabled]="!isOwner(party)" (click)="removeParty(party)" md-raised-button class="md-raised" color="accent">X</button>
                 </h2>
                 <p class="ma-description" style="padding:0 10px;margin-bottom:35px;margin-top: 6px;">
                   {{party.description}}
+                </p>
+                <p class="ma-description" style="padding:0 10px;margin-bottom:35px;margin-top: 6px;">
+                  {{party.location.name}}
                 </p>
                 <div layout="row">
                   <div layout="row" layout-align="end end">

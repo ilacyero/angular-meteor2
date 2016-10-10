@@ -1,0 +1,8 @@
+<div class="errors">
+  <div *ngFor="let error of errors | async">
+    <div class="alert alert-danger" role="alert">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{error.message}}
+    </div>
+  </div>
+</div>

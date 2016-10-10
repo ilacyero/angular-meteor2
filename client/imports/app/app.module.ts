@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { routes, ROUTES_PROVIDERS } from './app.routes';
 import { PARTIES_DECLARATIONS } from './parties';
 import { SHARED_DECLARATIONS } from './shared';
+import { ERROR_DECLARATIONS } from './errors';
 import { MdButtonModule } from "@angular2-material/button";
 import { MdToolbarModule } from "@angular2-material/toolbar";
 import { MdInputModule } from "@angular2-material/input";
@@ -44,7 +45,8 @@ import {FileDropModule} from "angular2-file-drop";
     AppComponent,
     ...PARTIES_DECLARATIONS,
     ...SHARED_DECLARATIONS,
-    ...AUTH_DECLARATIONS
+    ...AUTH_DECLARATIONS,
+    ...ERROR_DECLARATIONS,
   ],
   providers: [
     ...ROUTES_PROVIDERS
